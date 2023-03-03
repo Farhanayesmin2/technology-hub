@@ -32,13 +32,13 @@ const loadCategoriesDisplay = (categories) => {
 
  
             const categoryDiv = document.createElement('div');
-       
+    //   categoryDiv.classList.add("col");
        
             categoryDiv.innerHTML = `
-<div class="flex flex-wrap -m-4">
-        <div class="p-4 md:w-1/3">
-            <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400"
+<div class=" m-4">
+        <div class="p-4  ">
+            <div class="h-[100%] w-[100%] border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                <img class=" md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400"
                     alt="blog">
                 <div class="p-6">
                     <h2 class="tracking-widest text-lg title-font font-bold text-gray-800 mb-1">Features</h2>
