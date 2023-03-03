@@ -1,17 +1,17 @@
 
-      
+
 
 const loadCategories = async () => {
-  const url = `https://openapi.programming-hero.com/api/ai/tools`;
+    const url = `https://openapi.programming-hero.com/api/ai/tools`;
 
     const res = await fetch(url);
     const data = await res.json();
     loadCategoriesDisplay(data.data.tools);
-  
+
 };
 
 
-    
+
 
 
 
@@ -21,28 +21,28 @@ const loadCategoriesDisplay = (categories) => {
 
     //   const categoriesContainer = document.getElementById("featuresId");
 
- // console.log(categories);
-  
-  const postContainer = document.getElementById("post-categories");
+    // console.log(categories);
+
+    const postContainer = document.getElementById("post-categories");
 
 
 
     for (const category of categories) {
-       
 
- 
-            const categoryDiv = document.createElement('div');
-    //   categoryDiv.classList.add("col");
-       
-            categoryDiv.innerHTML = `
+
+
+        const categoryDiv = document.createElement('div');
+        //   categoryDiv.classList.add("col");
+
+        categoryDiv.innerHTML = `
 <div class="shadow-lg shadow-gray-500 m-4">
         <div class="p-4  ">
             <div class="h-[100%] w-[100%] border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                 <img class="rounded-lg md:h-36 w-full object-cover object-center" src=${category.image}
                     alt="blog">
-                <div class="p-6">
+                <div class="p-6 ">
                     <h2 class="tracking-widest text-lg title-font font-bold text-gray-800 mb-1">Features</h2>
-                   <div id="featuresId" >
+                   <div id="featuresId " >
                    <ol class="list-decimal">
                   
                     
@@ -54,9 +54,9 @@ const loadCategoriesDisplay = (categories) => {
                 
                    </ol>
                    </div>
-                   <hr>
+                   <hr class="my-3 text-extra-bold" >
 <div>
-<h1 class="text-md  font-bold" >${category.name}</h1>
+<h1 class="text-md  font-bold " >${category.name}</h1>
 </div>
 
 
@@ -70,21 +70,23 @@ const loadCategoriesDisplay = (categories) => {
                          
                         </a>
                        
-                       
+     
                     </div>
+                                <i class="fa-solid fa-calendar-days"></i> <span>${category.published_in
+            }</span>
                 </div>
             </div>
         `;
-     
+
         postContainer.appendChild(categoryDiv);
-       
+
         console.log(category);
     }
 
-    };
+};
 
-  
-   loadCategories();
+
+loadCategories();
 
 
 
