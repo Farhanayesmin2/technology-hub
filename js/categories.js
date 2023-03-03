@@ -1,28 +1,33 @@
 
 
 
-const loadCategories = async () => {
+const loadCategories = async (dataLimit) => {
     const url = `https://openapi.programming-hero.com/api/ai/tools`;
 
     const res = await fetch(url);
     const data = await res.json();
-    loadCategoriesDisplay(data.data.tools);
+    loadCategoriesDisplay(data.data.tools,dataLimit);
 
 };
 
 
 
 
-
-
-const loadCategoriesDisplay = (categories) => {
-
-
-
-    //   const categoriesContainer = document.getElementById("featuresId");
-
-    // console.log(categories);
-
+  
+   
+const loadCategoriesDisplay = (categories,dataLimit) => {
+  // display 6 only 
+    const showAll = document.getElementById('see-more');
+    
+    if (dataLimit && categories.length >6) {
+             categories = categories.slice(0, 6);
+    showAll.classList.remove('hidden');
+  }
+  else {
+    showAll.classList.add('hidden');
+ 
+    console.log(categories.length );
+} 
     const postContainer = document.getElementById("post-categories");
 
 
@@ -33,7 +38,7 @@ const loadCategoriesDisplay = (categories) => {
 
         const categoryDiv = document.createElement('div');
         //   categoryDiv.classList.add("col");
-
+        categoryDiv.innerHTML = "";
         categoryDiv.innerHTML = `
 <div class="shadow-lg shadow-gray-500 m-4">
         <div class="p-4  ">
@@ -43,16 +48,9 @@ const loadCategoriesDisplay = (categories) => {
                 <div class="p-6 ">
                     <h2 class="tracking-widest text-lg title-font font-bold text-gray-800 mb-1">Features</h2>
                    <div id="featuresId " >
-                   <ol class="list-decimal">
-                  
-                    
+                   <ol class="list-decimal">        
     ${category.features.map(item => `<li>${item}</li>`).join('')}
-  
-               
-                   
-                  
-                
-                   </ol>
+   </ol>
                    </div>
                    <hr class="my-3 text-extra-bold" >
 <div>
@@ -81,14 +79,22 @@ const loadCategoriesDisplay = (categories) => {
         postContainer.appendChild(categoryDiv);
 
         console.log(category);
-    }
+    }  
 
 };
 
+  // display 6 only 
+loadCategories(6);
 
-loadCategories();
 
+// See more all categories
+document.getElementById('see-more-btn').addEventListener('click', function () {
 
+ const postContainer = document.getElementById("post-categories");
+        //   categoryDiv.classList.add("col");
+        postContainer.innerHTML = "";
+    loadCategories();
+})
 
 
 
