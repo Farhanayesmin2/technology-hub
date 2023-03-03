@@ -102,27 +102,16 @@ const loadModal = async (category_id) => {
   const urlModal = `https://openapi.programming-hero.com/api/ai/tool/${category_id}`
   const res = await fetch(urlModal);
   const data = await res.json();
-        displayModalItems(data);
+        displayModalItems(data.data);
    
 };
 
 const displayModalItems = (newsDetails) => {
-   console.log(newsDetails);
-    // const modalBody = document.getElementById('modalDisplay');
-    // const modalTitle = document.getElementById('exampleModalLabel');
-    // modalBody.textContent = '';
-    // newsDetails.forEach(view => {
-    //     modalTitle.innerText = "Hello";
-    //     // console.log(view.title);
-    //     const modal = document.createElement('div');
-    //     modal.innerHTML = `
-    //     <p1>Hello</p1>
-    //        `;
-    //     modalBody.appendChild(modal);
-       
-       
-    //     // console.log(phone);
-    //     
-    // });
+    console.log(newsDetails.description);
+  // console.log(newsDetails.data.description);
+    const modalBody = document.getElementById('modalDisplay');
+    const modalTitle = document.getElementById('exampleModalLabel');
+ 
+    
+  
 }
-loadModal();
