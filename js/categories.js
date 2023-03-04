@@ -103,12 +103,13 @@ const loadModal = async (category_id) => {
   const urlModal = `https://openapi.programming-hero.com/api/ai/tool/${category_id}`
   const res = await fetch(urlModal);
   const data = await res.json();
-        displayModalItems(data.data);
+    displayModalItems(data.data);
+    
    
 };
 
 const displayModalItems = (categoryDetails) => {
-    console.log(categoryDetails.features);
+    console.log(categoryDetails.image_link[0]);
 
  const modalBody = document.getElementById('modalDisplay');
   //  const modalTitle = document.getElementById('exampleModalLabel');
@@ -125,25 +126,29 @@ const displayModalItems = (categoryDetails) => {
              <div class="grid gap-4 mx-auto  lg:grid-cols-2 "> <!-- Modal body  -->
     
                 
-                <div class="bg-red-50  border border-1 border-red-300  card w-[100%] bg-base-100 shadow-xl sm:mx-auto">
+                <div class="bg-red-50 border border-1 border-red-300  card w-[100%] bg-base-100 shadow-xl sm:mx-auto">
 
                     <div class="card-body"> <!-- Card body  -->
                         <h2 id="exampleModalLabel" class="card-title">${categoryDetails.description}</h2>
                         <!-- for right box -->
                         <div class="flex gap-2 mx-auto">
-                            <div class="h-[100px] w-[132px] bg-green-200 rounded-lg">
-                                <span class="text-red-800">
-                                    !001
+                            <div class="h-[100px] w-[132px] bg-gray-100 rounded-lg text-center py-5">
+                                <span class="text-red-900 text-bold">
+
+                               ${categoryDetails.pricing != null ? categoryDetails.pricing[0].price : "Free of Cost"}<br>
+                                 ${categoryDetails.pricing != null ? categoryDetails.pricing[0].plan : "No Data"}
                                 </span>
                             </div>
-                            <div class="h-[100px] w-[132px] rounded-lg">
-                                <span>
-                                    !003
+                            <div class="h-[100px] w-[132px]  bg-gray-100 rounded-lg text-center py-5 ">
+                                <span class="text-red-900 text-bold">
+                                   ${categoryDetails.pricing != null ? categoryDetails.pricing[1].price : "Free of Cost"} <br>
+                                 ${categoryDetails.pricing != null ? categoryDetails.pricing[1].plan : "No Data"}
                                 </span>
                             </div>
-                            <div class="h-[100px] w-[132px] rounded-lg">
-                                <span>
-                                    !004
+                            <div class="h-[100px] w-[132px]  bg-gray-100 rounded-lg text-center py-5">
+                                <span class="text-red-900 text-bold">
+                                   ${categoryDetails.pricing != null ? categoryDetails.pricing[2].price : "Free of Cost"} <br>
+                                 ${categoryDetails.pricing != null ? categoryDetails.pricing[2].plan : "No Data"}
                                 </span>
                             </div>
                         </div>
@@ -154,20 +159,28 @@ const displayModalItems = (categoryDetails) => {
                             <div class="px-3">
                                 <h1>Features</h1>
                                <ol class="list-disc">        
-                          <li>${categoryDetails.features[1] ? categoryDetails.features[1]['feature_name'] : "" }
+                          <li>${categoryDetails.features[1] ?  categoryDetails.features[1]['feature_name'] : "" }
                           </li>
                           <li>${categoryDetails.features[2] ? categoryDetails.features[2]['feature_name'] : "" }
                           </li>
                           <li>${categoryDetails.features[3] ? categoryDetails.features[3]['feature_name'] : ""}
-                          </li> </ol>
+                          </li> 
+
+
+                          <li>${categoryDetails.features[4]  ? categoryDetails.features[4]['feature_name'] : "No Data Found"}
+                          </li> 
+                          
+                          </ol>
 
                             </div>
 
                             <!--integration  -->
                             <div>
                                 <h1>Integration</h1>
-                           <ol class="list-disc">      
-                              ${categoryDetails.integrations.map(item =>`<li>${item ? item : "No Data Found."}</li>`).join('')}
+                           <ol class="list-disc">     
+                           ${categoryDetails.integrations != null ?  categoryDetails.integrations.map(item =>`<li>${item}</li>`).join('') : "No Data Found" }
+
+                             
                            </ol>
                             </div>
     
@@ -179,7 +192,7 @@ const displayModalItems = (categoryDetails) => {
                   <!-- left card start -->
                    <div class="card w-[100%] bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
-                        <img src="" alt="Shoes" class="rounded-xl" />
+                        <img src="${categoryDetails.image_link[0]}" alt="Shoes" class="rounded-xl" />
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">Shoes!</h2>
