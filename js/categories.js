@@ -108,19 +108,86 @@ const loadModal = async (category_id) => {
 };
 
 const displayModalItems = (categoryDetails) => {
-    console.log(categoryDetails.description);
+    console.log(categoryDetails.integrations);
 
  const modalBody = document.getElementById('modalDisplay');
-    const modalTitle = document.getElementById('exampleModalLabel');
+  //  const modalTitle = document.getElementById('exampleModalLabel');
  
-    //    modalBody.textContent ='';
+      modalBody.textContent ='';
     // categoryDetails.forEach(view => {
-       modalTitle.innerText=categoryDetails.description;
+     // modalTitle.innerText=categoryDetails.description;
         const modalAdd = document.createElement('div');
-         modalAdd.classList.add('modal');
- 
+       
     modalAdd.innerHTML = `
-       Hello
+   <!-- Modal body  -->
+     
+     
+            <div class="grid gap-4 mx-auto  lg:grid-cols-2 ">
+    
+                
+                <div class="card w-[100%] bg-base-100 shadow-xl sm:mx-auto">
+                    <div class="card-body">
+                        <h2 id="exampleModalLabel" class="card-title">${categoryDetails.description}</h2>
+                        <!-- for right box -->
+                        <div class="flex gap-2 mx-auto">
+                            <div class="h-[100px] w-[132px] bg-green-200 rounded-lg">
+                                <span class="text-red-800">
+                                    !001
+                                </span>
+                            </div>
+                            <div class="h-[100px] w-[132px] rounded-lg">
+                                <span>
+                                    !003
+                                </span>
+                            </div>
+                            <div class="h-[100px] w-[132px] rounded-lg">
+                                <span>
+                                    !004
+                                </span>
+                            </div>
+                        </div>
+                        <!-- For feature and integration -->
+                        <div class="flex gap-5 mx-auto">
+    
+                            <!-- features -->
+                            <div>
+                                <h1>Features</h1>
+                               <ol class="list-decimal">        
+    <li>${categoryDetails.features[1]['feature_name']}</li>
+    <li>${categoryDetails.features[2]['feature_name']}</li>
+    <li>${categoryDetails.features[3]['feature_name']}</li>
+   </ol>
+                            </div>
+                            <!--integration  -->
+                            <div>
+                                <h1>Integration</h1>
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </div>
+    
+                        </div> <!-- For feature and integration finish -->
+    
+    
+                    </div>
+                </div>
+    
+    
+    
+                   <!-- left card start -->
+                <div class="card w-[100%] bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="" alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">Shoes!</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                    </div>
+                </div>
+                    <!-- left card finish-->
+            </div>
+        </div>
+    
    `;
         modalBody.appendChild(modalAdd);
        
