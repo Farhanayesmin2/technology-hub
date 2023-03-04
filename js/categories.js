@@ -108,7 +108,7 @@ const loadModal = async (category_id) => {
 };
 
 const displayModalItems = (categoryDetails) => {
-    console.log(categoryDetails.integrations);
+    console.log(categoryDetails.features);
 
  const modalBody = document.getElementById('modalDisplay');
   //  const modalTitle = document.getElementById('exampleModalLabel');
@@ -119,14 +119,15 @@ const displayModalItems = (categoryDetails) => {
         const modalAdd = document.createElement('div');
        
     modalAdd.innerHTML = `
-   <!-- Modal body  -->
+  
      
      
-            <div class="grid gap-4 mx-auto  lg:grid-cols-2 ">
+             <div class="grid gap-4 mx-auto  lg:grid-cols-2 "> <!-- Modal body  -->
     
                 
-                <div class="card w-[100%] bg-base-100 shadow-xl sm:mx-auto">
-                    <div class="card-body">
+                <div class="bg-red-50  border border-1 border-red-300  card w-[100%] bg-base-100 shadow-xl sm:mx-auto">
+
+                    <div class="card-body"> <!-- Card body  -->
                         <h2 id="exampleModalLabel" class="card-title">${categoryDetails.description}</h2>
                         <!-- for right box -->
                         <div class="flex gap-2 mx-auto">
@@ -150,32 +151,33 @@ const displayModalItems = (categoryDetails) => {
                         <div class="flex gap-5 mx-auto">
     
                             <!-- features -->
-                            <div>
+                            <div class="px-3">
                                 <h1>Features</h1>
-                               <ol class="list-decimal">        
-    <li>${categoryDetails.features[1]['feature_name']}</li>
-    <li>${categoryDetails.features[2]['feature_name']}</li>
-    <li>${categoryDetails.features[3]['feature_name']}</li>
-   </ol>
+                               <ol class="list-disc">        
+                          <li>${categoryDetails.features[1] ? categoryDetails.features[1]['feature_name'] : "" }
+                          </li>
+                          <li>${categoryDetails.features[2] ? categoryDetails.features[2]['feature_name'] : "" }
+                          </li>
+                          <li>${categoryDetails.features[3] ? categoryDetails.features[3]['feature_name'] : ""}
+                          </li> </ol>
+
                             </div>
+
                             <!--integration  -->
                             <div>
                                 <h1>Integration</h1>
-                                <ul>
-                                    <li></li>
-                                </ul>
+                           <ol class="list-disc">      
+                              ${categoryDetails.integrations.map(item =>`<li>${item ? item : "No Data Found."}</li>`).join('')}
+                           </ol>
                             </div>
     
                         </div> <!-- For feature and integration finish -->
     
-    
-                    </div>
-                </div>
-    
-    
-    
-                   <!-- left card start -->
-                <div class="card w-[100%] bg-base-100 shadow-xl">
+                     </div> <!-- Card body  -->
+              </div>
+
+                  <!-- left card start -->
+                   <div class="card w-[100%] bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
                         <img src="" alt="Shoes" class="rounded-xl" />
                     </figure>
@@ -183,10 +185,10 @@ const displayModalItems = (categoryDetails) => {
                         <h2 class="card-title">Shoes!</h2>
                         <p>If a dog chews shoes whose shoes does he choose?</p>
                     </div>
-                </div>
-                    <!-- left card finish-->
-            </div>
-        </div>
+                   </div>
+                    <!-- left card finish-->   
+              
+           </div>
     
    `;
         modalBody.appendChild(modalAdd);
