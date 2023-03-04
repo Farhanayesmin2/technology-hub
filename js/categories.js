@@ -109,7 +109,7 @@ const loadModal = async (category_id) => {
 };
 
 const displayModalItems = (categoryDetails) => {
-    console.log(categoryDetails.image_link[0]);
+    console.log(categoryDetails);
 
  const modalBody = document.getElementById('modalDisplay');
   //  const modalTitle = document.getElementById('exampleModalLabel');
@@ -195,8 +195,13 @@ const displayModalItems = (categoryDetails) => {
                         <img src="${categoryDetails.image_link[0]}" alt="Shoes" class="rounded-xl" />
                     </figure>
                     <div class="card-body items-center text-center">
-                        <h2 class="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <h2 class="card-title">
+                        ${categoryDetails.input_output_examples === null ? "Can you give any example?" : categoryDetails.input_output_examples[0].input}
+                        
+                        
+                        
+                        </h2>
+                        <p>  ${categoryDetails.input_output_examples === null ? "No! Not Yet! Take a break! Please!" : categoryDetails.input_output_examples[0].input}</p>
                     </div>
                    </div>
                     <!-- left card finish-->   
