@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,125 +9,191 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
     <link>
     <!-- icon link -->
-<link rel="stylesheet" href="/js/categories.css">
-<script src="https://kit.fontawesome.com/e17f87398f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/js/categories.css">
+    <script src="https://kit.fontawesome.com/e17f87398f.js" crossorigin="anonymous"></script>
     <title>AI Universe Hub</title>
 </head>
+
 <body>
     <section>
-       
-           
-<header class="p-4 dark:bg-gray-800 dark:text-gray-100">
-    <div class="container flex justify-between h-16 mx-auto md:justify-center md:space-x-8">
-       
-        <a rel="noopener noreferrer" href="#" aria-label="Back to homepage" class="flex items-center sm:items-center  p-2">
-            <h1 class="text-gray-700/75 text-center text-3xl font-bold">AI Universe Hub</h1>
-        </a>
-    
-        <button title="Button" type="button" class="p-4 md:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="w-6 h-6 dark:text-gray-100">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                </path>
-            </svg>
-        </button>
-    </div>
-    <div class="text-center">
-<button type="button"
-    class="bg-[#EB5757] transform hover:translate-y-3 shadow-lg shadow-gray-500 hover:shadow-lg hover:shadow-gray-700  duration-1000   text-white rounded-lg text-center  relative px-8 py-4 ml-4 overflow-hidden font-semibold rounded dark:bg-gray-100 dark:text-gray-900">
-    Sort By Date
-    <span
-        class="bg-green-400 shadow-xl absolute top-0 right-0 px-5 py-1 text-xs tracking-wider text-center uppercase whitespace-no-wrap origin-bottom-left transform rotate-45 -translate-y-full translate-x-1/3 dark:bg-lime-400">sort</span>
-</button>
-    </div>
 
-</header>  
+
+        <header class="p-4 dark:bg-gray-800 dark:text-gray-100">
+            <div class="container flex justify-between h-16 mx-auto md:justify-center md:space-x-8">
+
+                <a rel="noopener noreferrer" href="#" aria-label="Back to homepage"
+                    class="flex items-center sm:items-center  p-2">
+                    <h1 class="text-gray-700/75 text-center text-3xl font-bold">AI Universe Hub</h1>
+                </a>
+
+                <button title="Button" type="button" class="p-4 md:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        class="w-6 h-6 dark:text-gray-100">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <div class="text-center">
+                <button type="button"
+                    class="bg-[#EB5757] transform hover:translate-y-3 shadow-lg shadow-gray-500 hover:shadow-lg hover:shadow-gray-700  duration-1000   text-white rounded-lg text-center  relative px-8 py-4 ml-4 overflow-hidden font-semibold rounded dark:bg-gray-100 dark:text-gray-900">
+                    Sort By Date
+                    <span
+                        class="bg-green-400 shadow-xl absolute top-0 right-0 px-5 py-1 text-xs tracking-wider text-center uppercase whitespace-no-wrap origin-bottom-left transform rotate-45 -translate-y-full translate-x-1/3 dark:bg-lime-400">sort</span>
+                </button>
+            </div>
+
+        </header>
     </section>
     <!-- This is the categories section start -->
-<section   >
-<div class="grid  grid-flow-row">
-<div id="post-categories" class="container grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-2  mx-auto px-5 py-24  ">
+    <section>
+        <div class="grid  grid-flow-row">
+            <div id="post-categories"
+                class="container grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-2  mx-auto px-5 py-24  ">
 
-</div>
-<div id="see-more" class="text-center items-center hidden" >
-<button type="button" 
-id="see-more-btn"
-    class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">See More</button>
+            </div>
+            <div id="see-more" class="text-center items-center hidden">
+                <button type="button" id="see-more-btn"
+                    class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">See
+                    More</button>
 
-</div>
-</div>
-
-
-
-</section>
-
-<!-- The button to open modal -->
-<div id="modalDisplay">
-
-
-<input type="checkbox" id="my-modal-3" class="modal-toggle" />
-<!-- <div class="modal">
-    <div class="modal-box relative"> -->
-        <!-- <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label> -->
-    
-<div class="modal  ">
-
-<!-- Modal content -->
-<div class="modal-box">
-    <button type="button"
-        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-        data-modal-hide="defaultModal">
-        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-        <span class="sr-only">Close modal</span>
-    </button>
-<!-- <div class=  "   relative bg-white rounded-lg shadow dark:bg-gray-700 "> -->
-  
-   
-      
-      
-  
-    <!-- Modal body -->
-    <div  id="modalDisplay">
-
-    <!-- <div class="card lg:card-side bg-base-100 shadow-xl"> -->
-      
-        <div class="flex gap-4 mx-auto ">
-         
-        <!-- <h3 id="exampleModalLabel" class="text-xl font-semibold text-gray-900 dark:text-white">
-        
-        </h3> -->
-        <div class="card w-[100%] bg-base-100 shadow-xl">
-            <div class="card-body">
-                <h2 id="exampleModalLabel"  class="card-title">Card title!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
             </div>
         </div>
 
 
 
+    </section>
 
-<div class="card w-[100%] bg-base-100 shadow-xl">
-    <figure class="px-10 pt-10">
-        <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
-    </figure>
-    <div class="card-body items-center text-center">
-        <h2 class="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-       
-    </div>
-</div>
+    <!-- The button to open modal -->
+    <div>
 
 
+        <input type="checkbox" id="my-modal-3" class="modal-toggle"/>
+        <!-- <div class="modal">
+    <div class="modal-box relative"> -->
+        <!-- <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label> -->
 
+        <div class="modal  ">
+
+
+        <!-- Modal content -->
+    <div class="modal-box">
+        <button type="button"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            data-modal-hide="defaultModal">
+            <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <span class="sr-only">Close modal</span>
+        </button>
+        <!-- <div class=  "   relative bg-white rounded-lg shadow dark:bg-gray-700 "> -->
+    
+    
+    
+    
+    
+        <!-- Modal body -->
+        <div id="modalDisplay">
+    
+            <!-- <div class="card lg:card-side bg-base-100 shadow-xl"> -->
+    
+            <div class="grid gap-4 mx-auto  lg:grid-cols-2 ">
+    
+                <!-- <h3 id="exampleModalLabel" class="text-xl font-semibold text-gray-900 dark:text-white">
+            
+            </h3> -->
+                <div class="card w-[100%] bg-base-100 shadow-xl sm:mx-auto">
+                    <div class="card-body">
+                        <h2 id="exampleModalLabel" class="card-title"></h2>
+                        <!-- for price box -->
+                        <div class="flex gap-2 mx-auto">
+                            <div class="h-[100px] w-[132px] bg-green-200 rounded-lg">
+                                <span class="text-red-800">
+                                    !001
+                                </span>
+                            </div>
+                            <div class="h-[100px] w-[132px] rounded-lg">
+                                <span>
+                                    !003
+                                </span>
+                            </div>
+                            <div class="h-[100px] w-[132px] rounded-lg">
+                                <span>
+                                    !004
+                                </span>
+                            </div>
+                        </div>
+                        <!-- For feature and integration -->
+                        <div class="flex gap-5 mx-auto">
+    
+                            <!-- features -->
+                            <div>
+                                <h1>Features</h1>
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <!--integration  -->
+                            <div>
+                                <h1>Integration</h1>
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </div>
+    
+    
+    
+    
+                        </div>
+    
+    
+                    </div>
+                </div>
+    
+    
+    
+    
+                <div class="card w-[100%] bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">Shoes!</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+    
+                    </div>
+                </div>
+    
+    
+    
+    
+            </div>
+    
+        </div>
+    
     
     </div>
+    </div>
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
-  
-
-</div>
-</div>
-</div>
 
 
 
@@ -140,10 +207,7 @@ id="see-more-btn"
 
     <!-- </div>
 </div> -->
-</div>
-
-
-       
+    <!-- </div> -->
 
 
 
@@ -151,6 +215,10 @@ id="see-more-btn"
 
 
 
-        <script src="js/categories.js"></script>
+
+
+
+    <script src="js/categories.js"></script>
 </body>
+
 </html>

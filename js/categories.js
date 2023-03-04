@@ -40,6 +40,7 @@ const loadCategoriesDisplay = (categories,dataLimit) => {
         //   categoryDiv.classList.add("col");
         categoryDiv.innerHTML = "";
         categoryDiv.innerHTML = `
+     
 <div class="shadow-lg shadow-gray-500 m-4">
         <div class="p-4  ">
             <div class="h-[100%] w-[100%] border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
@@ -106,12 +107,25 @@ const loadModal = async (category_id) => {
    
 };
 
-const displayModalItems = (newsDetails) => {
-    console.log(newsDetails.description);
-  // console.log(newsDetails.data.description);
-    const modalBody = document.getElementById('modalDisplay');
+const displayModalItems = (categoryDetails) => {
+    console.log(categoryDetails.description);
+
+ const modalBody = document.getElementById('modalDisplay');
     const modalTitle = document.getElementById('exampleModalLabel');
  
-    
+    //    modalBody.textContent ='';
+    // categoryDetails.forEach(view => {
+       modalTitle.innerText=categoryDetails.description;
+        const modalAdd = document.createElement('div');
+         modalAdd.classList.add('modal');
+ 
+    modalAdd.innerHTML = `
+       Hello
+   `;
+        modalBody.appendChild(modalAdd);
+       
+       
+           
+
   
 }
