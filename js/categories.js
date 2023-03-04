@@ -2,20 +2,32 @@
 
 
 const loadCategories = async (dataLimit) => {
+
     const url = `https://openapi.programming-hero.com/api/ai/tools`;
 
     const res = await fetch(url);
+    toggleSpinner(true);
     const data = await res.json();
     loadCategoriesDisplay(data.data.tools,dataLimit);
-
+ 
 };
 
 
-
+// accuracy added
+const accuracyAdded = score => {
+    let res = "";
+    if (score > 0) {
+        res += `<span id="accuracyBtn" class="badge main-btn p-2" style="position: absolute; right:10px; top:10px;">${100 * score}% accuracy</span>`;
+    }
+    return res;
+}
 
   
    
-const loadCategoriesDisplay = (categories,dataLimit) => {
+const loadCategoriesDisplay = (categories, dataLimit) => {
+    
+
+
   // display 6 only 
     const showAll = document.getElementById('see-more');
     
@@ -31,7 +43,7 @@ const loadCategoriesDisplay = (categories,dataLimit) => {
     const postContainer = document.getElementById("post-categories");
 
 
-
+    
     for (const category of categories) {
 
 
@@ -80,8 +92,10 @@ const loadCategoriesDisplay = (categories,dataLimit) => {
 
        // console.log(category);
     }  
-
+toggleSpinner(false);
 };
+
+
 
   // display 6 only 
 loadCategories(6);
@@ -216,3 +230,15 @@ const displayModalItems = (categoryDetails) => {
 
   
 }
+
+// Toggle spinner function...
+  const toggleSpinner = isLoading => {
+  const loaderSpinner = document.getElementById('loader');
+
+  if (isLoading) {
+    loaderSpinner.classList.remove('hidden');
+  }
+  else {
+    loaderSpinner.classList.add('hidden');
+  }
+}    
